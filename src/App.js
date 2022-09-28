@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import EffectFetch from "./examples/EffectFetch";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -42,27 +43,30 @@ function App() {
     setName(e.target.value);
   };
   return (
-    <div className="App">
-      <div>
-        <h1>Count: {count}</h1>
-        <p>{effectMessage1}</p>
-        <p>{effectMessage2}</p>
-        <p>{effectMessage3}</p>
+    <>
+      <div className="App">
+        <div>
+          <h1>Count: {count}</h1>
+          <p>{effectMessage1}</p>
+          <p>{effectMessage2}</p>
+          <p>{effectMessage3}</p>
 
-        <button onClick={() => setCount(count + 1)}>Increment</button>
-        <button onClick={() => setCount(count - 1)}>Decrement</button>
-        <button onClick={() => setCount(0)}>Reset</button>
+          <button onClick={() => setCount(count + 1)}>Increment</button>
+          <button onClick={() => setCount(count - 1)}>Decrement</button>
+          <button onClick={() => setCount(0)}>Reset</button>
+        </div>
+        <div>
+          <h1>Name: {name}</h1>
+          <input
+            id="name-input"
+            type="text"
+            placeholder="Name"
+            onChange={updateName}
+          />
+        </div>
       </div>
-      <div>
-        <h1>Name: {name}</h1>
-        <input
-          id="name-input"
-          type="text"
-          placeholder="Name"
-          onChange={updateName}
-        />
-      </div>
-    </div>
+      {/* <EffectFetch /> */}
+    </>
   );
 }
 
