@@ -8,13 +8,22 @@ function App() {
   const [effectMessage2, setEffectMessage2] = useState("");
   const [effectMessage3, setEffectMessage3] = useState("");
   // ************* USEEFFECT HOOK ************* //
-  //useEffect(callback[, dependencies]);
-  //callback is the function containing the side-effect logic
-  //callback is executed right after changes were being pushed to DOM
-  //dependency is an optional array of dependencies
-  //useEffect() executes callback only if the dependencies have changed between renderings
+  //The useEffect Hook is a React hook that is used to specify the side effects that occur after a component renders.
+  //They can be used to perform a variety of operations, such as fetching data, setting up a subscription, or changing the DOM.
+  //What are side effects?
+  //=> Side effects are any changes to the state of the application outside of the scope of the function that returns the JSX to be rendered.
+  //The Effect Hook replaces lifecycle methods (e.g., componentDidMount, componentDidUpdate, and componentWillUnmount
+  //=> It llows you to execute lifecycle tasks without a need for a class component
+  //=> You can fetch data in React using the useEffect hook.
+
+  // ************* SYNTAX OF USEEFFECT HOOK ************* //
+  // useEffect(callback, [dependencies]);
+  //The first argument is a function that contains the side-effect logic
+  //The second argument is an array of dependencies
+  //The useEffect hook will only run the callback function if the dependencies have changed between renderings
+  //If the dependencies are not provided, the callback will run after every rendering
   //In the first useEffect pictured, there is no dependency provided, so the side-effect runs after every rendering.
-  //Let's take a closer look
+  //Let's take a closer look at how it works
 
   // ************* NO DEPENDENCIES ************* //
   //no dependency provided, so the side-effect runs after every rendering.
