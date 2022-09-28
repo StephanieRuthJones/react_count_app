@@ -7,6 +7,16 @@ function App() {
   const [effectMessage1, setEffectMessage1] = useState("");
   const [effectMessage2, setEffectMessage2] = useState("");
   const [effectMessage3, setEffectMessage3] = useState("");
+  // ************* USEEFFECT HOOK ************* //
+  //useEffect(callback[, dependencies]);
+  //callback is the function containing the side-effect logic
+  //callback is executed right after changes were being pushed to DOM
+  //dependency is an optional array of dependencies
+  //useEffect() executes callback only if the dependencies have changed between renderings
+  //In the first useEffect pictured, there is no dependency provided, so the side-effect runs after every rendering.
+  //Let's take a closer look
+
+  // ************* NO DEPENDENCIES ************* //
   //no dependency provided, so the side-effect runs after every rendering.
   //This is the same as componentDidMount and componentDidUpdate
   //it will run when the component is mounted and when count or name changes in state
@@ -19,12 +29,16 @@ function App() {
       `Effect Hook, NO dependencies- run after every rendering (when count or name states update).`
     );
   });
+
+  // ************* EMPTY ARRAY DEPENDENCY ************* //
+
   // empty array dependency, so the side-effect runs only once after the first rendering.
   //This is the same as componentDidMount
   //it will run when the component is mounted
   //It will only run once, when the component is mounted
   //If you want to fetch data from an API, this is the best place to do it because it will only run once
   //It will not run when the component is updated (won't run when count or name state changes)
+
   useEffect(() => {
     setEffectMessage2(
       `Effect Hook, [] EMPTY ARRAY DEPENDENCY: You clicked ${count} times`
@@ -33,6 +47,7 @@ function App() {
       `Effect Hook, [] EMPTY ARRAY DEPENDENCY - run only once when the component is mounted.`
     );
   }, []);
+  // ************* COUNT DEPENDENCY ************* //
   // count dependency provided, so the side-effect runs only when the dependency changes.
   //This is the same as componentDidUpdate
   //it will run when the component is mounted and when count changes in state
